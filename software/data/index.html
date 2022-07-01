@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>K-3000 Controller</title>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <script
+      src="https://code.jquery.com/jquery-3.1.1.min.js"
+      integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+</head>
+<body>
+    <div class="ui container">
+        <div class="ui menu" style="margin-top: 24px;">
+            <div class="header item">
+              K-3000 Controller
+            </div>
+        </div>
+        <div class="section">
+            <div class="ui left labeled button" tabindex="0"  onclick="refresh()">
+                <a class="ui basic label">
+                    Motor status: <p id="isMotorEnabled">Unknown</p>
+                </a>
+                <div class="ui icon button">
+                  <i class="sync icon"></i> Refresh
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <form class="ui form">
+                <div class="field">
+                    <label>Number of Shots</label>
+                    <div class="ui action input">
+                        <input id="numberOfShots" type="number" />
+                        <button class="ui right labeled icon button" onclick="setInfinite()">
+                            <i class="undo icon"></i>
+                            Infinite
+                        </button>
+                    </div>
+                </div>
+                <div class="field">
+                    <label>Delay between Shots</label>
+                    <div class="ui right labeled input">
+                        <input id="delayBetweenShots" type="number" />
+                        <div class="ui basic label">
+                            seconds
+                        </div>
+                    </div>
+                </div>
+                <button class="ui primary right labeled icon button" type="button" onclick="save()">
+                    <i class="cloud upload icon"></i>
+                    Save
+                </button>
+            </form>
+        </div>
+        <div class="section">
+            <div class="ui buttons">
+                <button class="ui right labeled icon positive button" onclick="turnOn()">
+                    <i class="play icon"></i>
+                    start
+                </button>
+                <button class="ui right labeled icon negative button" onclick="turnOff()">
+                    <i class="stop icon"></i>
+                    Stop
+                </button>
+            </div>
+            <button class="ui button" onclick="oneShot()">
+                One shot
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+    .section {
+        margin-top: 16px;
+        overflow: hidden;
+    }
+</style>
